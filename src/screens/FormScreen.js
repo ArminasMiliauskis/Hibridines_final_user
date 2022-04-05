@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, StatusBar, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Image, SafeAreaView, Vibration } from 'react-native';
 import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import ButtonComponent from '../components/ButtonComponent';
 import { addMessage } from '../database/messageDatabase.utils';
+
 
 function FormScreen({ route }) {
     const { car } = route.params;
@@ -79,7 +80,9 @@ function FormScreen({ route }) {
                         email: email,
                         other: other,
                         car: car
-                    })}}
+                    });
+                    Vibration.vibrate();
+                }}
                 />
             </ScrollView>
         </SafeAreaView>
